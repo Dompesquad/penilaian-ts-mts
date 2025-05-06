@@ -27,13 +27,9 @@ function updateAverage(input) {
 }
 
 function exportToExcel() {
-  let table = document.getElementById("nilaiTable");
-  let html = table.outerHTML.replace(/ /g, '%20');
-  let url = 'data:application/vnd.ms-excel,' + html;
-  let link = document.createElement('a');
-  link.href = url;
-  link.download = 'penilaian_tapak_suci.xls';
-  link.click();
+  const table = document.getElementById("nilaiTable");
+  const workbook = XLSX.utils.book_new();
+  const ws = XLSX.utils.table_to_sheet(table);
+  XLSX.utils.book_append_sheet(workbook, ws, "Penilaian");
+  XLSX.writeFile(workbook, "Penilaian_Tapak_Suci.xlsx");
 }
-
-
