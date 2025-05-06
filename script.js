@@ -1,4 +1,16 @@
-const siswaList = Array.from({ length: 53 }, (_, i) => `Siswa ${i + 1}`);
+const siswaList = [
+  "Abdul Malik", "Aidil Faturrahman", "Airil Pika Saputra", "Andi Febriani", "Andira Ritalia.P",
+  "Asmaul Husna", "Dirham", "Fauziah Nur Insani", "Hairul Putra Abadi", "Helwa Nuralam",
+  "Indira", "Irfandi", "Jusma", "Kharisma Nur Annafisah", "M Ridho Rizki Ilahi",
+  "Mardiana", "Muh Adriansyah", "Muh. Arif Mapparenta", "Muhammad Rezky Aditya", "Muhammad Yunus",
+  "Muhammad Yusuf. S", "Mutmainnah", "Nurdayana", "Nurlinda", "Nurul Khatimah Anwar",
+  "Putri", "Putri Damayanti", "Reza", "Rezky", "Adam Halilu",
+  "Ainun Hikma", "Andi Aufar", "Farhan Sumayyah .Ar", "Fika Nur Aulia", "Khumairah",
+  "M.Nasrul R", "M.Zain Nurichsan", "Marsya Sri Aulia", "Muh. Ilyas. M", "Muh. Wahyu Nur Ilahi",
+  "Muh.Ifdal Al Amin", "Muhammad Ikram", "Nattan Alghi Fahri", "Nur Islamia Arwani", "Nur Rahmah",
+  "Nursalam", "Riska", "Riska Arfah", "Siti Hawa. M", "Siti Magfirah Jumakari",
+  "Vira Damayanti", "Wahyullah Pratama", "Yatmi"
+];
 
 window.onload = function () {
   const tbody = document.getElementById("tableBody");
@@ -46,7 +58,7 @@ function unduhExcel() {
     const row = table.rows[i];
     const data = [
       row.cells[0].innerText,
-      row.cells[1].children[0].value, // Ambil nama dari input text
+      row.cells[1].children[0].value,
       row.cells[2].children[0].value,
       row.cells[3].children[0].value,
       row.cells[4].children[0].value,
