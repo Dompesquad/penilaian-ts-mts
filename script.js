@@ -46,7 +46,7 @@ function unduhExcel() {
     const row = table.rows[i];
     const data = [
       row.cells[0].innerText,
-      row.cells[1].children[0].value,
+      row.cells[1].children[0].value, // Ambil nama dari input text
       row.cells[2].children[0].value,
       row.cells[3].children[0].value,
       row.cells[4].children[0].value,
