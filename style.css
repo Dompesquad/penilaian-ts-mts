@@ -1,93 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #4CAF50, #8BC34A);
-  color: white;
-  text-align: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-container, .main-container {
-  width: 90%;
-  max-width: 900px;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-input[type="password"], input[type="text"], input[type="number"] {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 14px 30px;
-  font-size: 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #388E3C;
-}
-
-.table-container {
-  overflow-x: auto;
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
   margin-top: 20px;
 }
 
 th, td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-th {
-  background-color: #8BC34A;
-  color: white;
-}
-
-input[type="number"], input[type="text"] {
-  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 8px;
   text-align: center;
 }
 
-.average {
-  font-weight: bold;
+th {
+  background-color: #f2f2f2;
 }
 
-.input-nilai {
-  width: 80px;
+input {
+  width: 60px;
 }
 
-button:active {
-  transform: scale(0.98);
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
 }
