@@ -2,35 +2,57 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Penilaian Tapak Suci</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nilai Praktek Tapak Suci</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>NILAI PRAKTEK TAPAK SUCI<br>MTs MUHAMMADIYAH MALINO</h1>
+    <h1>NILAI PRAKTEK TAPAK SUCI<br>MTS MUHAMMADIYAH MALINO</h1>
+    <button onclick="exportToExcel()">Export ke Excel</button>
   </header>
 
-  <div class="table-container">
-    <table id="nilaiTable">
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Nama</th>
-          <th>Jurus</th>
-          <th>Fisik</th>
-          <th>AIK</th>
-          <th>Rata-rata</th>
-          <th>Nilai Huruf</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
-    </table>
-  </div>
+  <main>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Jurus</th>
+            <th>Fisik</th>
+            <th>AIK</th>
+            <th>Rata-Rata</th>
+            <th>Nilai Huruf</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </main>
 
-  <button onclick="unduhExcel()">Unduh Excel</button>
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBr0SJYDWMkEnKHu-oHZFBJjz3IjhKXtdw",
+      authDomain: "praktek-ts-mts.firebaseapp.com",
+      projectId: "praktek-ts-mts",
+      storageBucket: "praktek-ts-mts.appspot.com",
+      messagingSenderId: "256342176188",
+      appId: "1:256342176188:web:700dc0e1226a71d89f3bb9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.firestore = { db, doc, setDoc, getDoc };
+  </script>
+
+  <!-- SheetJS for Excel export -->
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
