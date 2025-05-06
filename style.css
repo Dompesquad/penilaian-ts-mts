@@ -1,21 +1,61 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
+* {
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 950px;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container, .main-container {
+  width: 90%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
-  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input[type="password"], input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #388E3C;
+}
+
+.table-container {
+  overflow-x: auto;
 }
 
 table {
@@ -25,28 +65,29 @@ table {
 }
 
 th, td {
+  padding: 12px;
   border: 1px solid #ddd;
-  padding: 6px;
+  font-size: 16px;
+}
+
+th {
+  background-color: #8BC34A;
+  color: white;
+}
+
+input[type="number"], input[type="text"] {
+  font-size: 16px;
   text-align: center;
 }
 
-input[type="number"], input[type="text"], input[type="password"] {
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
+.average {
+  font-weight: bold;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.input-nilai {
+  width: 80px;
 }
 
-button:hover {
-  background-color: #2980b9;
+button:active {
+  transform: scale(0.98);
 }
