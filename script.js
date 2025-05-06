@@ -1,4 +1,3 @@
-// Ganti daftar ini dengan nama siswa asli jika perlu
 const siswaList = Array.from({ length: 53 }, (_, i) => `Siswa ${i + 1}`);
 
 window.onload = function () {
@@ -7,7 +6,7 @@ window.onload = function () {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${i + 1}</td>
-      <td>${nama}</td>
+      <td><input type="text" value="${nama}" style="width: 100px;"></td>
       <td><input type="number" min="60" max="90" oninput="hitung(this)"></td>
       <td><input type="number" min="60" max="90" oninput="hitung(this)"></td>
       <td><input type="number" min="60" max="90" oninput="hitung(this)"></td>
@@ -47,7 +46,7 @@ function unduhExcel() {
     const row = table.rows[i];
     const data = [
       row.cells[0].innerText,
-      row.cells[1].innerText,
+      row.cells[1].children[0].value,
       row.cells[2].children[0].value,
       row.cells[3].children[0].value,
       row.cells[4].children[0].value,
