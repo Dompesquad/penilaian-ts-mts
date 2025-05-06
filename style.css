@@ -6,7 +6,7 @@ body {
   position: relative;
 }
 
-/* Tambahkan latar belakang logo sebagai elemen transparan */
+/* Latar logo Tapak Suci */
 body::before {
   content: "";
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/48/Logo_Tapak_Suci_Putera_Muhammadiyah.svg');
