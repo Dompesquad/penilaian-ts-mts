@@ -1,35 +1,63 @@
-const ADMIN_CODE = "tapaksuci9";
+// Ganti daftar ini dengan nama siswa asli jika perlu
+const siswaList = Array.from({ length: 53 }, (_, i) => `Siswa ${i + 1}`);
 
-function verifyAccess() {
-  const input = document.getElementById("accessCode").value;
-  if (input === ADMIN_CODE) {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("main").style.display = "block";
+window.onload = function () {
+  const tbody = document.getElementById("tableBody");
+  siswaList.forEach((nama, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${nama}</td>
+      <td><input type="number" min="60" max="90" oninput="hitung(this)"></td>
+      <td><input type="number" min="60" max="90" oninput="hitung(this)"></td>
+      <td><input type="number" min="60" max="90" oninput="hitung(this)"></td>
+      <td class="rata"></td>
+      <td class="huruf"></td>
+    `;
+    tbody.appendChild(row);
+  });
+};
+
+function hitung(input) {
+  const row = input.parentElement.parentElement;
+  const jurus = parseFloat(row.cells[2].children[0].value) || 0;
+  const fisik = parseFloat(row.cells[3].children[0].value) || 0;
+  const aik = parseFloat(row.cells[4].children[0].value) || 0;
+
+  if (jurus && fisik && aik) {
+    const rata = ((jurus + fisik + aik) / 3).toFixed(2);
+    row.cells[5].innerText = rata;
+    let huruf = "D";
+    if (rata >= 85) huruf = "A";
+    else if (rata >= 75) huruf = "B";
+    else if (rata >= 65) huruf = "C";
+    row.cells[6].innerText = huruf;
   } else {
-    alert("Kode salah!");
+    row.cells[5].innerText = "";
+    row.cells[6].innerText = "";
   }
 }
 
-function updateAverage(input) {
-  const row = input.parentElement.parentElement;
-  const inputs = row.querySelectorAll("input[type='number']");
-  let total = 0;
-  let count = 0;
-  inputs.forEach(inp => {
-    const val = parseFloat(inp.value);
-    if (!isNaN(val)) {
-      total += val;
-      count++;
-    }
-  });
-  const avgCell = row.querySelector(".average");
-  avgCell.textContent = count === 3 ? (total / 3).toFixed(2) : "-";
-}
-
-function exportToExcel() {
+function unduhExcel() {
+  const wb = XLSX.utils.book_new();
+  const ws_data = [["No", "Nama", "Jurus", "Fisik", "AIK", "Rata-rata", "Nilai Huruf"]];
   const table = document.getElementById("nilaiTable");
-  const workbook = XLSX.utils.book_new();
-  const ws = XLSX.utils.table_to_sheet(table);
-  XLSX.utils.book_append_sheet(workbook, ws, "Penilaian");
-  XLSX.writeFile(workbook, "Penilaian_Tapak_Suci.xlsx");
+
+  for (let i = 1; i < table.rows.length; i++) {
+    const row = table.rows[i];
+    const data = [
+      row.cells[0].innerText,
+      row.cells[1].innerText,
+      row.cells[2].children[0].value,
+      row.cells[3].children[0].value,
+      row.cells[4].children[0].value,
+      row.cells[5].innerText,
+      row.cells[6].innerText
+    ];
+    ws_data.push(data);
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  XLSX.utils.book_append_sheet(wb, ws, "Penilaian");
+  XLSX.writeFile(wb, "Penilaian_Tapak_Suci.xlsx");
 }
