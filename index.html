@@ -2,51 +2,30 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Penilaian Tapak Suci Kelas 9</title>
+  <title>Penilaian Tapak Suci</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
-  <div class="login-container" id="login">
-    <h2>Masukkan Kode Akses</h2>
-    <input type="password" id="accessCode" placeholder="Kode Akses" />
-    <button onclick="verifyAccess()">Masuk</button>
-  </div>
+  <h2>Penilaian Tapak Suci - Kelas 9</h2>
+  <table id="nilaiTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Jurus</th>
+        <th>Fisik</th>
+        <th>AIK</th>
+        <th>Rata-rata</th>
+        <th>Nilai Huruf</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Data siswa akan diisi oleh JavaScript -->
+    </tbody>
+  </table>
+  <button onclick="unduhExcel()">Unduh Excel</button>
 
-  <div class="main-container" id="main" style="display: none;">
-    <h2>Penilaian Praktik Tapak Suci - Kelas 9</h2>
-    <div class="table-container">
-      <table id="nilaiTable">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Jurus</th>
-            <th>Fisik</th>
-            <th>Aik</th>
-            <th>Rata-rata</th>
-          </tr>
-        </thead>
-        <tbody>
-          <script>
-            for (let i = 1; i <= 53; i++) {
-              document.write(`<tr>
-                <td>${i}</td>
-                <td><input type="text" placeholder="Nama Siswa" class="input-nama"/></td>
-                <td><input type="number" min="60" max="90" onchange="updateAverage(this)" class="input-nilai"/></td>
-                <td><input type="number" min="60" max="90" onchange="updateAverage(this)" class="input-nilai"/></td>
-                <td><input type="number" min="60" max="90" onchange="updateAverage(this)" class="input-nilai"/></td>
-                <td class="average">-</td>
-              </tr>`);
-            }
-          </script>
-        </tbody>
-      </table>
-    </div>
-    <button onclick="exportToExcel()">Export ke Excel</button>
-  </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
